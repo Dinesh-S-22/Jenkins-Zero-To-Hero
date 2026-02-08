@@ -7,7 +7,7 @@ pipeline {
   }
 
   environment {
-    SONAR_URL = "http://174.129.93.55:9000/"
+    SONAR_URL = "http://174.129.93.55:9000"
     DOCKER_IMAGE = "abhishekf5/ultimate-cicd:${BUILD_NUMBER}"
   }
 
@@ -16,6 +16,16 @@ pipeline {
     stage('Checkout') {
       steps {
         git branch: 'main', url: 'https://github.com/Dinesh-S-22/Jenkins-Zero-To-Hero'
+      }
+    }
+
+    stage('Install Docker CLI') {
+      steps {
+        sh '''
+          apt-get update
+          apt-get install -y docker.io
+          docker --version
+        '''
       }
     }
 
@@ -60,3 +70,4 @@ pipeline {
     }
   }
 }
+

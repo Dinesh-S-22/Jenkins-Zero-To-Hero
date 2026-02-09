@@ -7,7 +7,7 @@ pipeline {
   }
 
   environment {
-    SONAR_URL   = "http://100.24.117.210:9000"
+    SONAR_URL   = "http://3.235.180.107:9000"
     DOCKER_IMAGE = "martinalex2/arsenal:${BUILD_NUMBER}"
   }
 
